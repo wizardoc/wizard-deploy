@@ -26,6 +26,7 @@ WARNING "check container is running";
 result=`docker ps | grep waizard-client`;
 
 if [ "$result" ]; then
+  WARNING "stop and remove current container";
   docker stop wizard-client
   docker rm wizard-client
 fi
