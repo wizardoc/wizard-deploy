@@ -1,4 +1,4 @@
-source src/dist/logger.sh;
+source src/deploy/logger.sh;
 
 function HUB_INIT() {
   # judge dist is exist
