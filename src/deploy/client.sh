@@ -15,7 +15,7 @@ yarn install
 
 SUCCESS "build start";
 # build app
-cd src/dist/client && yarn build
+cd src/dist/wizard/client && yarn build
 cd ..
 
 # build image
