@@ -1,16 +1,19 @@
-# stop current container
-docker rm wizard-client
+source ./init.sh;
+source ./logger.sh;
 
-echo "==============pull start================"
+HUB_INIT "wizard";
+
+SUCCESS "dist directory init successful";
+
+SUCCESS "pull";
 # pull all code
 cd ../dist/wizard && git pull
 
-
-echo "==============install deps start=================="
+SUCCESS "install deps start";
 # install dependencies
 yarn install
 
-echo "==============build start=================="
+SUCCESS "build start";
 # build app
 cd ./client && yarn build
 cd ..
@@ -18,7 +21,16 @@ cd ..
 # build image
 docker build -t wizard-client .
 
+WARNING "check container is running";
+# stop current container
+result=`docker ps | waizard-client`;
+
+if [ "$result" ]; then
+  docker stop wizard-client
+  docker rm wizard-client
+fi
+
 # run container!
 docker run --name wizard-client -p 80:80 wizard-client
 
-echo "==============running!=================="
+SUCCESS "running ~"
