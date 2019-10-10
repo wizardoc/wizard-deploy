@@ -4,20 +4,21 @@ function HUB_INIT() {
   # judge dist is exist
   distPath="dist"
 
-  WRANING "dist is not exist";
   if [ ! -d $distPath ]; then
-    SUCCESS "dist is created";
+    WARNING "dist is not exist";
     mkdir $distPath;
+    SUCCESS "dist is created";
   fi
 
   # judge the repository is exist
   # the first argument is name of repository
   repoPath="$distPath/$1"
 
-  WRANING "The repo is not exist"
   if [ ! -d $repoPath ]; then    
-    SUCCESS "The repo is created"
+    WARNING "The repo is not exist"
+
     # clone the repo here
     git clone "https://github.com/wizaaard/$1.git" $repoPath;
+    SUCCESS "The repo is created"
   fi
 }

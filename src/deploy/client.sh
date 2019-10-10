@@ -23,7 +23,7 @@ docker build -t wizard-client .
 
 WARNING "check container is running";
 # stop current container
-result=`docker ps | grep waizard-client`;
+result=`docker ps | grep wizard-client`;
 
 if [ "$result" ]; then
   WARNING "stop and remove current container";

@@ -6,7 +6,7 @@ function ERROR() {
 　echo -e "\033[41m $1 \033[0m" 
 }
 
-function WRANING() {
+function WARNING() {
   echo -e "\033[43m $1 \033[0m"
 }
 
