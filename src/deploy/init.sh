@@ -1,8 +1,8 @@
-source ./logger.sh;
+source src/dist/logger.sh;
 
 function HUB_INIT() {
   # judge dist is exist
-  distPath="../../a"
+  distPath="dist"
 
   WRANING "dist is not exist";
   if [ ! -d $distPath ]; then

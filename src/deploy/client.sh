@@ -1,13 +1,13 @@
-source ./init.sh;
-source ./logger.sh;
+source src/deploy/init.sh;
+source src/deploy/logger.sh;
 
 HUB_INIT "wizard";
 
 SUCCESS "dist directory init successful";
 
-SUCCESS "pull";
+SUCCESS "pull start";
 # pull all code
-cd ../dist/wizard && git pull
+cd dist/wizard && git pull
 
 SUCCESS "install deps start";
 # install dependencies
@@ -15,7 +15,7 @@ yarn install
 
 SUCCESS "build start";
 # build app
-cd ./client && yarn build
+cd src/dist/client && yarn build
 cd ..
 
 # build image

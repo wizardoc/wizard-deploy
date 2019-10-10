@@ -9,9 +9,7 @@ const router = new Router()
 app.use(BodyParser())
 
 router.post('/wizard/client/deploy', ctx => {
-  console.info(ctx.request.body)
-
-  exec('bash ./deploy/client.sh', (err, out) => {
+  exec('bash src/deploy/client.sh', (err, out) => {
     if(err){
       ctx.res.statusCode = 500
       ctx.body = "Server Internal Error"
