@@ -15,7 +15,7 @@ yarn install
 
 SUCCESS "build start";
 # build app
-cd dist/wizard/client && yarn build
+cd ./client && yarn build
 cd ..
 
 # build image
@@ -23,7 +23,7 @@ docker build -t wizard-client .
 
 WARNING "check container is running";
 # stop current container
-result=`docker ps | waizard-client`;
+result=`docker ps | grep waizard-client`;
 
 if [ "$result" ]; then
   docker stop wizard-client
