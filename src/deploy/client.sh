@@ -34,4 +34,4 @@ fi
 # run container!
 docker run --name wizard-client -p 80:80 wizard-client
 
-SUCCESS "running ~"
+SUCCESS "========= client running ~ =========="

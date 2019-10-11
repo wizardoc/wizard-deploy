@@ -8,8 +8,8 @@ const router = new Router()
 
 app.use(BodyParser())
 
-router.post('/wizard/client/deploy', ctx => {
-  exec('bash src/deploy/client.sh', (err, out) => {
+const commander = (ctx, shellName) => {
+  exec(`bash src/deploy/${shellName}.sh`, (err, out) => {
     if(err){
       ctx.res.statusCode = 500
       ctx.body = "Server Internal Error"
@@ -23,6 +23,16 @@ router.post('/wizard/client/deploy', ctx => {
     ctx.res.statusCode = 200
     ctx.body = "done!"
   })
+}
+
+router.post('/wizard/client/deploy', ctx => {
+  commander(ctx,'client')
+
+  ctx.body = "deploy!"
+})
+
+router.post('/wizard/server/deploy', ctx => {
+  commander(ctx,'server')
 
   ctx.body = "deploy!"
 })
