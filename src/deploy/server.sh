@@ -16,7 +16,7 @@ cd dist/archie && git pull
 # build
 SUCCESS "start server build";
 
-cd dist/archie && bash scripts/build.sh
+docker build -t archie .
 
 # deps
 SUCCESS "create network and data place";
