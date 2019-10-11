@@ -50,5 +50,7 @@ if [ ! "$has_network" ]; then
 fi
 
 # run
-docker-compose -f ./docker-compose.depend.yml up
-docker-compose -f ./docker-compose.primary.yml up
+docker-compose -f ./docker-compose.depend.yml up;
+SUCCESS "depens up!";
+docker-compose -f ./docker-compose.primary.yml up;
+SUCCESS "primary up!";
