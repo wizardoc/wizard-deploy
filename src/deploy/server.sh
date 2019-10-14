@@ -16,7 +16,7 @@ cd dist/archie && git pull
 # build
 SUCCESS "start server build";
 
-go build -o ./build/archie ./main.go;
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o ./build/archie ./main.go;
 
 SUCCESS "Begin docker build...\n";
 
