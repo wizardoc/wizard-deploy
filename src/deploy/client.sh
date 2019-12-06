@@ -39,7 +39,7 @@ wizard_notify "检查重启Docker镜像" "3";
 
 WARNING "check container is running";
 # stop current container
-result=`docker ps | grep wizard-client`;
+result=`docker ps -a | grep wizard-client`;
 
 if [ "$result" ]; then
   WARNING "stop and remove current container";
@@ -48,7 +48,7 @@ if [ "$result" ]; then
 fi
 
 # run container!
-docker run --name wizard-client -p 80:80 wizard-client;
+docker run -d --name wizard-client -p 80:80 wizard-client;
 
 wizard_notify "部署完成!" "2";
 remove_wizard_task;
